@@ -6,13 +6,46 @@ import {COMPILER_PROVIDERS, JitCompiler, ResourceLoader} from '@angular/compiler
 import {ServerModule, renderModuleFactory} from '@angular/platform-server';
 
 import * as fs from 'fs';
+import * as path from 'path';
 
-const pathAndHash = '../src/app/module#AppModule';
-const indexHtml = fs.readFileSync('./src/index.html').toString();
+function relToAbs(file: string): string {
+  if (path.isAbsolute(file)) {
+    return file;
+  }
+  return path.normalize(path.join(process.cwd(), file));
+}
 
-function loadAppModule(pathAndHash: string): any {
-  const [modPath, exportName] = pathAndHash.split('#');
-  return require(modPath)[exportName];
+const fileModule = relToAbs(process.argv[2]);
+const fileIndex = relToAbs(process.argv[3]);
+const fileServerModule = process.argv.length > 4 ? relToAbs(process.argv[4]) : null;
+
+const indexHtml = fs.readFileSync(fileIndex).toString();
+
+const NG_MODULE_KEYS = ['providers', 'declarations', 'imports', 'exports', 'entryComponents', 'bootstrap', 'schemas', 'id'];
+
+
+function hasNgModuleMetadata(value: any): boolean {
+  if (typeof value !== 'function') {
+    return false;
+  }
+  if (Reflect.getMetadataKeys(value).indexOf('annotations') === -1) {
+    return false;
+  }
+  const annotations: any[] = Reflect.getMetadata('annotations', value);
+  return annotations.some(annotation => Object.keys(annotation).every(key => NG_MODULE_KEYS.indexOf(key) !== -1));
+}
+
+function loadNgModule(modPath: string): any {
+  const exported = require(modPath);
+  const modules = Object
+    .keys(exported)
+    .filter(key => hasNgModuleMetadata(exported[key]));
+  if (modules.length === 0) {
+    throw new Error(`${modPath} contains no @NgModules`);
+  } else if (modules.length > 1) {
+    throw new Error(`${modPath} contains more than 1 @NgModule`);
+  }
+  return exported[modules[0]];
 }
 
 class FileLoader implements ResourceLoader {
@@ -39,7 +72,11 @@ class RequireNgModuleFactoryLoader implements NgModuleFactoryLoader {
   }
 }
 
-const moduleType = loadAppModule(pathAndHash);
+const moduleType = loadNgModule(fileModule);
+let appServerModule = [];
+if (fileServerModule) {
+  appServerModule.push(loadNgModule(fileServerModule));
+}
 
 const annotations: any = Reflect.getMetadata('annotations', moduleType)[0];
 const bootstrap = annotations.bootstrap;
@@ -47,6 +84,7 @@ const bootstrap = annotations.bootstrap;
 @NgModule({
   bootstrap,
   imports: [
+    ...appServerModule,
     moduleType,
     ServerModule,
   ],
