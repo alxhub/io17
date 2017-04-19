@@ -9,6 +9,12 @@ import {HomeRoute} from './root';
   imports: [
     RouterModule.forChild([
       {path: '', component: HomeRoute, pathMatch: 'full'},
+      {path: 'qux', pathMatch: 'prefix'},
+      {path: 'baz', pathMatch: 'full'},
+      {path: 'test', children: [
+        {path: 'foo/:id/:other/bar'},
+        {path: 'bar/:id/:other/foo', pathMatch: 'prefix'},
+      ]}
     ]),
   ],
 })

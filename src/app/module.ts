@@ -21,4 +21,4 @@ import {AppRouteModule} from './routes';
   ],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}
