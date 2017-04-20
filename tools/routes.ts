@@ -104,13 +104,19 @@ function regexForSegment(segment: string): {segment: string, pure: boolean} {
   }
 }
 
-export function regexForTerminal(route: TerminalRoute): {pattern: string, match: string} {
+export function matcherForTerminal(route: TerminalRoute, baseUrl: string = '/'): {pattern: string, match: string} {
+  if (baseUrl.endsWith('/')) {
+    baseUrl = baseUrl.substr(0, baseUrl.length - 1);
+  }
   const body = route
     .path
     .split('/')
     .map(segment => regexForSegment(segment));
-  const pattern = '/' + body.map(segment => segment.segment).join('/');
+  let pattern = baseUrl + '/' + body.map(segment => segment.segment).join('/');
   if (body.every(segment => segment.pure)) {
+    if (pattern.endsWith('/') && pattern !== '/') {
+      pattern = pattern.substr(0, pattern.length - 1);
+    }
     if (route.prefix) {
       return {pattern, match: 'prefix'};
     } else {

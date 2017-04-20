@@ -11,6 +11,7 @@ import {HomeRoute} from './root';
       {path: '', component: HomeRoute, pathMatch: 'full'},
       {path: 'qux', pathMatch: 'prefix'},
       {path: 'baz', pathMatch: 'full'},
+      {path: 'zux/:id/:other'},
       {path: 'test', children: [
         {path: 'foo/:id/:other/bar'},
         {path: 'bar/:id/:other/foo', pathMatch: 'prefix'},

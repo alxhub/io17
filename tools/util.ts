@@ -66,3 +66,23 @@ export function jitCompiler(): JitCompiler {
   }
   return _jitCompiler;
 }
+
+function recursiveListDirHelper(dir: string, prefix: string): string[] {
+  const entries = fs
+    .readdirSync(dir)
+    .map(entry => ({entry, isDir: fs.statSync(path.join(dir, entry)).isDirectory()}));
+  return entries
+    .filter(meta => !meta.isDir)
+    .map(meta => meta.entry)
+    .map(entry => prefix !== '' ? path.join(prefix, entry) : entry)
+    .concat(entries
+      .filter(meta => meta.isDir)
+      .map(meta => meta.entry)
+      .map(entry => recursiveListDirHelper(path.join(dir, entry), path.join(prefix, entry)))
+      .reduce((acc, subDirs) => acc.concat(subDirs), [])
+    );
+}
+
+export function recursiveListDir(dir: string): string[] {
+  return recursiveListDirHelper(dir, '');
+}

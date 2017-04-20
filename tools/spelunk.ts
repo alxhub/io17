@@ -1,8 +1,10 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import * as ts from 'typescript';
 
 const sourceText = fs.readFileSync(process.argv[2]).toString();
-const source = ts.createSourceFile(process.argv[2], sourceText, ts.ScriptTarget.ES5, false, ts.ScriptKind.JS);
+
+const IS_CHUNK = /^[0-9]+\..*\.chunk\.js$/;
 
 function name(node: ts.Node): string {
   return ts.SyntaxKind[node.kind];
@@ -15,14 +17,19 @@ function printAst(node: ts.Node, space: string): void {
   });
 }
 
-function interpretRouteMap(map: ts.ObjectLiteralExpression): {[module: string]: number} {
+export interface ChunkMap {
+  [module: string]: string;
+}
+
+function interpretRouteMap(map: ts.ObjectLiteralExpression, chunks: string[], dist: string): ChunkMap {
   let routes = {};
   map.properties.forEach(property => {
     const propAssign = property as ts.PropertyAssignment;
     const key = (propAssign.name as ts.StringLiteral).text;
     const value = (propAssign.initializer as ts.ArrayLiteralExpression);
     const index = value.elements[1] as ts.LiteralExpression;
-    routes[key] = parseInt(index.text);
+    const chunkIndex = parseInt(index.text);
+    routes[key] = findChunk(chunks, chunkIndex, dist);
   });
   return routes;
 }
@@ -126,8 +133,33 @@ function routeMapFromSource(source: ts.SourceFile): ts.ObjectLiteralExpression|n
   }
 }
 
-const map = routeMapFromSource(source);
-if (map !== null) {
-  const routes = interpretRouteMap(map);
-  console.log(JSON.stringify(routes, null, 2));
+function findChunk(chunks: string[], index: number, dist: string): string {
+  const prefix = `${index}.`;
+  const matches = chunks.filter(chunk => chunk.startsWith(prefix));
+  if (matches.length === 0) {
+    throw new Error(`No ${prefix}*.js found in ${dist}`);
+  } else if (matches.length > 1) {
+    throw new Error(`Too many ${prefix}*.js files found in ${dist}`);
+  }
+  return matches[0];
+}
+
+export function chunkMapForDist(dist: string): ChunkMap|null {
+  const files = fs
+    .readdirSync(dist)
+    .filter(file => fs.statSync(path.join(dist, file)).isFile());
+  const mains = files.filter(file => file.startsWith('main.') && file.endsWith('.js'));
+  const chunks = files.filter(file => IS_CHUNK.test(file));
+  if (mains.length === 0) {
+    throw new Error(`No main.*.js found in ${dist}`);
+  } else if (mains.length > 1) {
+    throw new Error(`Too many main.*.js files found in ${dist}`);
+  }
+  const sourceText = fs.readFileSync(path.join(dist, mains[0])).toString();
+  const source = ts.createSourceFile(process.argv[2], sourceText, ts.ScriptTarget.ES5, false, ts.ScriptKind.JS);
+  const map = routeMapFromSource(source);
+  if (map === null) {
+    return null;
+  }
+  return interpretRouteMap(map, chunks, dist);
 }
