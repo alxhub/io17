@@ -6,11 +6,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-route.component.css'],
   moduleId: module.id,
 })
-export class CartRouteComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class CartRouteComponent {}

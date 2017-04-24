@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCardModule, MdIconModule, MdInputModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
+import {MdCardModule, MdIconModule, MdInputModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
 
 import {HomeRouteComponent} from './home-route/home-route.component';
 
