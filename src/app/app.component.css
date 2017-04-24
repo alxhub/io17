@@ -18,4 +18,5 @@ md-toolbar .middle {
   background-repeat: no-repeat;
   margin: 0px;
   padding: 20px;
+  min-height: 300px;
 }

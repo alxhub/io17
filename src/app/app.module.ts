@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { CurrentSaleComponent } from './current-sale/current-sale.component';
 import { ProductLineComponent } from './product-line/product-line.component';
 
+import {CartModule} from './cart/cart-route.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { ProductLineComponent } from './product-line/product-line.component';
     MdSnackBarModule,
     RouterModule.forRoot([
       {path: '', pathMatch: 'full', component: HomeRouteComponent},
-    ])
+    ]),
+    CartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
