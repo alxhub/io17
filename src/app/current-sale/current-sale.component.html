@@ -1,0 +1,13 @@
+<md-card>
+  <md-card-title>{{sale.title}}</md-card-title>
+  <md-card-content>
+    <div class="product">
+      <img [src]="sale.image">
+    </div>
+    <div class="actions">
+      <button class="mat-primary mat-raised-button action" (click)="testSnackBar()">
+        <span class="mat-button-wrapper">{{sale.callToAction}}</span>
+      </button>
+    </div>
+  </md-card-content>
+</md-card>

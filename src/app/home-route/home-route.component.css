@@ -1,0 +1,16 @@
+md-card {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(1.0, 1.0, 1.0, 0.5);
+}
+
+md-card-title {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+product-line {
+  margin-bottom: 15px;
+}

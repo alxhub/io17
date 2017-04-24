@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.title {
+  padding-left: 20px;
+  padding-right: 20px;
+}

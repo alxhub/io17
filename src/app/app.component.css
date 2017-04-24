@@ -1,0 +1,21 @@
+md-toolbar {
+  display: flex;
+}
+
+md-toolbar .middle {
+  flex-grow: 1;
+}
+
+.nav md-icon {
+  padding-left: 10px;
+}
+
+.content {
+  display: block;
+  background-image: url('/assets/hero.png');
+  background-size: 300%;
+  background-position-x: -225px;
+  background-repeat: no-repeat;
+  margin: 0px;
+  padding: 20px;
+}
