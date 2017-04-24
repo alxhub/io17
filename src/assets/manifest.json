@@ -1,0 +1,13 @@
+{
+  "name": "Angular Store",
+  "short_name": "NgStore",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "/assets/logo.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }],
+  "background_color": "#ffffff",
+  "theme_color": "#3f51b5"
+}

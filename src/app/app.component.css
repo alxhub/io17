@@ -1,0 +1,25 @@
+.content {
+  display: block;
+  background-size: 300%;
+  background-position-x: -225px;
+  background-repeat: no-repeat;
+  margin: 0px;
+  padding: 20px;
+  min-height: 300px;
+}
+
+.middle {
+  flex-grow: 1;
+}
+
+.mdl-layout__header-row {
+  padding: 0px 16px;
+}
+
+.mdl-layout-title {
+  margin-left: 20px;
+}
+
+.material-icons {
+  margin-left: 10px;
+}

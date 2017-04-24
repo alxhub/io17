@@ -1,0 +1,36 @@
+.mdl-card {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mdl-card__title {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.product {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px linear-gradient() rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+  width: 100%;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  margin-bottom: 0px;
+}
+
+.action {
+  justify-content: center;
+  font-size: larger;
+  margin-left: auto;
+  margin-right: auto;
+}

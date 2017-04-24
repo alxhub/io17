@@ -1,0 +1,13 @@
+<div class="mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">{{sale.title}}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <div class="product">
+      <img [src]="sale.image" [attr.alt]="sale.title">
+    </div>
+    <div class="actions">
+      <button class="action mdl-button mdl-button--raised mdl-button--colored">{{sale.callToAction}}</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.product {
+  width: 96px;
+}
+
+.product .inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product .img {
+  position: relative;
+}
+
+.product img {
+  width: 100%;
+}
+
+.desc {
+  display: inline-block;
+  padding-left: 20px;
+  flex-grow: 1;
+  color: #909090;
+  font-family: sans-serif;
+}
+
+.product h1 {
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  font-size: 20px;
+  top: calc(50% - 12px);
+  text-align: center;
+  width: 100%;
+  color: white;
+  opacity: 0.8;
+  text-shadow: 1px 1px black;
+  font-weight: 100;
+}
+
+.link {
+  color: #3f51b5;
+}

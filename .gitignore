@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/firebase.json
 
 # dependencies
 /node_modules
@@ -40,3 +41,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/.ngsw-config.json

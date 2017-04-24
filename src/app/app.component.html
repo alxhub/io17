@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="mdl-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <icon name="menu"></icon>
+      <span class="mdl-layout-title">NgStore</span>
+      <span class="middle"></span>
+      <icon name="cart"></icon>
+      <icon name="account"></icon>
+    </div>
+  </header>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
