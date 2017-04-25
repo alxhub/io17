@@ -13,22 +13,22 @@ import {HomeModule} from './home/home-route.module';
 import {CartModule} from './cart/cart-route.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
-    NoopAnimationsModule,
+    // Angular modules
     BrowserModule.withServerTransition({appId: 'ng-store'}),
+    NoopAnimationsModule,
     HttpModule,
+    // Material
     MdCardModule,
     MdIconModule,
     MdToolbarModule,
     MdSnackBarModule,
+    // Application routing
     RouterModule.forRoot([]),
     HomeModule,
     CartModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

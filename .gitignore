@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/firebase.json
 
 # dependencies
 /node_modules
