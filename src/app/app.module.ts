@@ -3,22 +3,18 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MdCardModule, MdIconModule, MdInputModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
-
-import {HomeRouteComponent} from './home-route/home-route.component';
+import {MdCardModule, MdIconModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CurrentSaleComponent } from './current-sale/current-sale.component';
 import { ProductLineComponent } from './product-line/product-line.component';
 
+import {HomeModule} from './home/home-route.module';
 import {CartModule} from './cart/cart-route.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeRouteComponent,
-    CurrentSaleComponent,
-    ProductLineComponent,
   ],
   imports: [
     NoopAnimationsModule,
@@ -26,12 +22,10 @@ import {CartModule} from './cart/cart-route.module';
     HttpModule,
     MdCardModule,
     MdIconModule,
-    MdInputModule,
     MdToolbarModule,
     MdSnackBarModule,
-    RouterModule.forRoot([
-      {path: '', pathMatch: 'full', component: HomeRouteComponent},
-    ]),
+    RouterModule.forRoot([]),
+    HomeModule,
     CartModule,
   ],
   providers: [],
