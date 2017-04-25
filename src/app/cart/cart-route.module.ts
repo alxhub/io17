@@ -10,7 +10,7 @@ import {CartRouteComponent} from './cart-route.component';
     CommonModule,
     MdCardModule,
     RouterModule.forChild([
-      {path: 'cart', component: CartRouteComponent},
+      {path: '', pathMatch: 'full', component: CartRouteComponent},
     ])
   ],
   declarations: [

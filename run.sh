@@ -4,11 +4,9 @@ PATH=$PATH:$(npm bin)
 set -x
 
 # Production build
+rm -rf dist/*
 ng build --prod
-
-# Post-build logic goes here
-
-
+cp src/manifest.json dist/
 
 # Serve
 cd dist

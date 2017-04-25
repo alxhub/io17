@@ -4,14 +4,8 @@ import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdCardModule, MdIconModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
-import {ServiceWorkerModule} from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
-import { CurrentSaleComponent } from './current-sale/current-sale.component';
-import { ProductLineComponent } from './product-line/product-line.component';
-
-import {HomeModule} from './home/home-route.module';
-import {CartModule} from './cart/cart-route.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,12 +19,11 @@ import {CartModule} from './cart/cart-route.module';
     MdIconModule,
     MdToolbarModule,
     // Application routing
-    RouterModule.forRoot([]),
-    HomeModule,
-    CartModule,
-    // Service worker
-    ServiceWorkerModule,
+    RouterModule.forRoot([
+      {path: '', pathMatch: 'full', loadChildren: 'app/home/home-route.module#HomeModule'},
+      {path: 'cart', loadChildren: 'app/cart/cart-route.module#CartModule'},
+    ]),
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

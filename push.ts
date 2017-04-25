@@ -25,7 +25,6 @@ export function sendPush(reg: any, payload?: Object): Promise<any> {
 }
 
 const key = JSON.parse(fs.readFileSync('./.ngsw-config.json').toString())['gcm_key'];
-console.log('key', key);
 push.setGCMAPIKey(key);
 
 const reg = JSON.parse(process.argv[2]);
