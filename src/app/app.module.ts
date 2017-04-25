@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdCardModule, MdIconModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
+import {ServiceWorkerModule} from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { CurrentSaleComponent } from './current-sale/current-sale.component';
@@ -23,11 +24,12 @@ import {CartModule} from './cart/cart-route.module';
     MdCardModule,
     MdIconModule,
     MdToolbarModule,
-    MdSnackBarModule,
     // Application routing
     RouterModule.forRoot([]),
     HomeModule,
     CartModule,
+    // Service worker
+    ServiceWorkerModule,
   ],
   bootstrap: [AppComponent],
 })

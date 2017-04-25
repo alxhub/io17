@@ -1,0 +1,29 @@
+{
+  "external": {
+    "urls": [
+      {"url": "https://unpkg.com/@angular/material@2.0.0-beta.3/prebuilt-themes/indigo-pink.css"},
+      {"url": "https://fonts.googleapis.com/icon?family=Material+Icons"}
+    ]
+  },
+  "dynamic": {
+    "group": [
+      {
+        "name": "api",
+        "urls": {
+          "https://ngstore-feb94.firebaseio.com/": {
+            "match": "prefix"
+          }
+        },
+        "cache": {
+          "optimizeFor": "performance",
+          "maxAgeMs": 3600000,
+          "strategy": "lru",
+          "maxEntries": 100
+        }
+      }
+    ]
+  },
+  "push": {
+    "showNotifications": true
+  }
+}

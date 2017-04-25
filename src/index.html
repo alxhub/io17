@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="https://unpkg.com/@angular/material@2.0.0-beta.3/prebuilt-themes/indigo-pink.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/worker-basic.js');
+    }
+  </script>
 </head>
 <body>
   <app-root>Loading...</app-root>
