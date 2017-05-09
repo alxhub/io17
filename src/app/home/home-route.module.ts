@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {CurrentSaleComponent} from '../current-sale/current-sale.component';
 import {ProductLineComponent} from '../product-line/product-line.component';
 import {HomeRouteComponent} from './home-route.component';
+import {SharedHttpModule} from '../http.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,9 @@ import {HomeRouteComponent} from './home-route.component';
     RouterModule.forChild([
       {path: '', pathMatch: 'full', component: HomeRouteComponent},
     ]),
+    // Needed here so that XSRFStrategy is overridden in the HttpModule
+    // that MaterialModule imports.
+    SharedHttpModule,
   ],
 })
 export class HomeModule {}
