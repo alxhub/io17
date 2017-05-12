@@ -1,6 +1,6 @@
 {
   "name": "Angular Store",
-  "short_name": "ng_store",
+  "short_name": "NgStore",
   "start_url": "/index.html",
   "display": "standalone",
   "icons": [{
@@ -11,6 +11,5 @@
     "src": "assets/logo-144.png",
     "sizes": "144x144",
     "type": "image/png"
-  }],
-  "gcm_sender_id": "548552315733"
+  }]
 }
