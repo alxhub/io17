@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MdCardModule, MdIconModule, MdToolbarModule, MdSnackBarModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 
@@ -14,10 +13,6 @@ import { AppComponent } from './app.component';
     BrowserModule.withServerTransition({appId: 'ng-store'}),
     NoopAnimationsModule,
     HttpModule,
-    // Material
-    MdCardModule,
-    MdIconModule,
-    MdToolbarModule,
     // Application routing
     RouterModule.forRoot([
       {path: '', pathMatch: 'full', loadChildren: 'app/home/home-route.module#HomeModule'},

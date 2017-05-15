@@ -1,9 +1,9 @@
-md-card {
+.mdl-card {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-md-card-title {
+.mdl-card__title {
   color: rgba(0, 0, 0, 0.6);
   font-weight: bold;
   font-size: 20px;
@@ -22,11 +22,6 @@ md-card-title {
   width: 100%;
 }
 
-md-card-actions button {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .actions {
   margin-top: 10px;
   display: flex;
@@ -35,8 +30,6 @@ md-card-actions button {
 
 .action {
   justify-content: center;
-  border: 0px;
-  padding: 8px 20px;
   font-size: larger;
   margin-left: auto;
   margin-right: auto;

@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MdCardModule, MdIconModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
 
 import {CurrentSaleComponent} from '../current-sale/current-sale.component';
@@ -16,8 +15,6 @@ import {SharedHttpModule} from '../http.module';
   ],
   imports: [
     CommonModule,
-    MdCardModule,
-    MdIconModule,
     RouterModule.forChild([
       {path: '', pathMatch: 'full', component: HomeRouteComponent},
     ]),

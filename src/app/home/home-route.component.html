@@ -1,7 +1,10 @@
 <current-sale *ngIf="sale | async as saleProduct" [sale]="saleProduct"></current-sale>
-<md-card>
-  <md-card-title>SHOP PRODUCTS</md-card-title>
-  <md-card-content>
+
+<div class="mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">SHOP PRODUCTS</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
     <product-line *ngFor="let product of products | async" [product]="product"></product-line>
-  </md-card-content>
-</md-card>
+  </div>
+</div>

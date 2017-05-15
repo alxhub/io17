@@ -3,9 +3,29 @@
 body {
   margin: 0px;
   padding: 0px;
+
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 .title {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.mdl-card {
+  width: 100%;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+
+.mdl-card__title {
+  padding: 0px;
+  margin-left: 20px;
+}
+
+.mdl-card__title-text {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+  font-size: 20px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }

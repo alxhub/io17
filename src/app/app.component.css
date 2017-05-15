@@ -1,15 +1,3 @@
-md-toolbar {
-  display: flex;
-}
-
-md-toolbar .middle {
-  flex-grow: 1;
-}
-
-.nav md-icon {
-  padding-left: 10px;
-}
-
 .content {
   display: block;
   background-image: url('/assets/hero.png');
@@ -19,4 +7,20 @@ md-toolbar .middle {
   margin: 0px;
   padding: 20px;
   min-height: 300px;
+}
+
+.middle {
+  flex-grow: 1;
+}
+
+.mdl-layout__header-row {
+  padding: 0px 16px;
+}
+
+.mdl-layout-title {
+  margin-left: 20px;
+}
+
+.material-icons {
+  margin-left: 10px;
 }
