@@ -21,9 +21,6 @@ import {SharedHttpModule} from '../http.module';
     RouterModule.forChild([
       {path: '', pathMatch: 'full', component: HomeRouteComponent},
     ]),
-    // Needed here so that XSRFStrategy is overridden in the HttpModule
-    // that MaterialModule imports.
-    SharedHttpModule,
   ],
 })
 export class HomeModule {}

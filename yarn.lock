@@ -98,9 +98,9 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.1.2.tgz#fc378c3330c0410e1fb8aac2546329a6887776e4"
 
-"@angular/material@git://github.com/angular/material2-builds#db55cbc":
-  version "2.0.0-beta.3"
-  resolved "git://github.com/angular/material2-builds#db55cbc"
+"@angular/material@2.0.0-beta.5":
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.5.tgz#712141ebfa77e3ace3ec8e32b5953b355e773965"
 
 "@angular/platform-browser-dynamic@^4.0.0":
   version "4.1.2"
@@ -121,9 +121,9 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.1.2.tgz#31b1b126fec2e1c32f4557ef8eb605536adccb27"
 
-"@angular/service-worker@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-1.0.0-beta.13.tgz#fa9383d3cc06d32eabd0fcd2c78a9ea1fe8824da"
+"@angular/service-worker@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-1.0.0-beta.14.tgz#445242b7a62fedf9fc6c439eede4a31fa2c9f07f"
   dependencies:
     base64-js "^1.1.2"
     jshashes "^1.0.5"
@@ -3111,9 +3111,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ng-pwa-tools@^0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/ng-pwa-tools/-/ng-pwa-tools-0.0.14.tgz#5d08619b1417dc72b03eae32926951fa3f8c4d16"
+ng-pwa-tools@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/ng-pwa-tools/-/ng-pwa-tools-0.0.15.tgz#c5a600086f16c75fabc427237da160be21989c8d"
   dependencies:
     "@types/sha1" "^1.1.0"
     minimist "^1.2.0"
