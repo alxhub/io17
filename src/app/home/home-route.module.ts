@@ -6,6 +6,7 @@ import {CurrentSaleComponent} from '../current-sale/current-sale.component';
 import {ProductLineComponent} from '../product-line/product-line.component';
 import {HomeRouteComponent} from './home-route.component';
 import {SharedHttpModule} from '../http.module';
+import {IconModule} from '../icon/icon.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {SharedHttpModule} from '../http.module';
     RouterModule.forChild([
       {path: '', pathMatch: 'full', component: HomeRouteComponent},
     ]),
+    IconModule,
   ],
 })
 export class HomeModule {}

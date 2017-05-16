@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import {IconModule} from './icon/icon.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
       {path: '', pathMatch: 'full', loadChildren: 'app/home/home-route.module#HomeModule'},
       {path: 'cart', loadChildren: 'app/cart/cart-route.module#CartModule'},
     ]),
+    IconModule,
   ],
   bootstrap: [AppComponent],
 })
