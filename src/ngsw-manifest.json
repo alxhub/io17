@@ -1,6 +1,0 @@
-{
-  "static.ignore": [
-    "/ngsw-manifest.json",
-    "/worker-basic.min.js"
-  ]
-}
