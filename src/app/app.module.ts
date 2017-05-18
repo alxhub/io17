@@ -12,7 +12,6 @@ import {IconModule} from './icon/icon.module';
   imports: [
     // Angular modules
     BrowserModule.withServerTransition({appId: 'ng-store'}),
-    NoopAnimationsModule,
     HttpModule,
     // Application routing
     RouterModule.forRoot([
