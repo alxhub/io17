@@ -19,6 +19,8 @@ This app depends on `ng-pwa-tools`, which automate some of the more configuratio
 * application shell rendering (`ngu-app-shell`)
 * HTTP/2 push configuration (`ngu-firebase-push`)
 
+In Windows, you must run the above commands in Bash prefixed by `./node_modules/.bin/`, e.g. `./node_modules/.bin/ngu-sw-manifest`
+
 ## Branches
 
 * `master`: plain application before progressive enhancement
